@@ -5,7 +5,7 @@ class Writer:
         DATA: str = 'registry.json'
 
     @staticmethod
-    def save_data(self, data, filename: str) -> None:
+    def save_data(data, filename: str) -> None:
         """Saves data to a JSON file."""
         try:
             # Abrir o arquivo no modo de escrita ('w')
