@@ -18,6 +18,7 @@ class Writer:
         except IOError as e:
             print(f"Erro ao escrever no arquivo: {e}")
 
+    @staticmethod
     def load_data(self, filename: str) -> None:
         """Carrega dados de um arquivo JSON. Retorna uma lista vazia se o arquivo não existir."""
         try:
