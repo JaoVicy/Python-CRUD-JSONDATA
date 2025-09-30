@@ -20,7 +20,7 @@ class Writer:
             print(f"Erro ao escrever no arquivo: {e}")
 
     @staticmethod
-    def load_data(filename: str) -> list[str]:
+    def load_data(filename: str) -> List[Any]:
         """Carrega dados de um arquivo JSON. Retorna uma lista vazia se o arquivo não existir."""
         try:
             # Abrir o arquivo no modo de leitura ('r')
