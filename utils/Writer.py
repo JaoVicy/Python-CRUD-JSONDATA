@@ -17,3 +17,17 @@ class Writer:
             print(f"Dados salvos com sucesso em {filename}")
         except IOError as e:
             print(f"Erro ao escrever no arquivo: {e}")
+
+    def load_data(self, filename: str) -> None:
+        """Carrega dados de um arquivo JSON. Retorna uma lista vazia se o arquivo não existir."""
+        try:
+            # Abrir o arquivo no modo de leitura ('r')
+            with open(filename, 'r', encoding='utf-8') as f:
+                # json.load lê o JSON do arquivo (f) e o converte para um objeto Python
+                return json.load(f)
+        except FileNotFoundError:
+            print(f"Arquivo {filename} não encontrado. Iniciando com dados vazios.")
+            return []  # Retorna uma lista vazia se o arquivo não existir
+        except json.JSONDecodeError:
+            print(f"Erro ao decodificar JSON em {filename}. O arquivo pode estar corrompido.")
+            return []  # Retorna uma lista vazia se o JSON for inválido
