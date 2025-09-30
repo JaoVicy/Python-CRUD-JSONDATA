@@ -1,4 +1,5 @@
 import json
+from typing import List, Any
 
 class Writer:
     def __init__(self):
