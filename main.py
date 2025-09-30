@@ -29,3 +29,25 @@ def display_record(record: Optional[Dict[str, Any]]) -> None:
         print("--------------------------")
     else:
         print("\nRegistro não encontrado.")
+
+
+def display_all_records(records: List[Dict[str, Any]]) -> None:
+    """Exibe todos os registros em formato de tabela simples."""
+    if not records:
+        print("\nNenhum registro encontrado.")
+        return
+
+    print("\n--- LISTA DE REGISTROS ---")
+
+    # Lógica de formatação de tabela (mantida do código anterior)
+    headers = list(records[0].keys()) if records else []
+
+    header_line = " | ".join(h.upper().ljust(15) for h in headers)
+    print("-" * (len(header_line) + len(headers)))
+    print(header_line)
+    print("-" * (len(header_line) + len(headers)))
+
+    for record in records:
+        row = " | ".join(str(record.get(h, '')).ljust(15) for h in headers)
+        print(row)
+    print("-" * (len(header_line) + len(headers)))
