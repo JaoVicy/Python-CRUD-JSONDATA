@@ -4,6 +4,7 @@ class Writer:
     def __init__(self):
         DATA: str = 'registry.json'
 
+    @staticmethod
     def save_data(self, data, filename: str) -> None:
         """Saves data to a JSON file."""
         try:
