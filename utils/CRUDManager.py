@@ -45,3 +45,17 @@ class CRUDManager:
         self._save_and_persist()
 
         return new_id
+
+    # =========================================================
+    # R - READ (Retrieve/List)
+    # =========================================================
+    def get_record_by_id(self, target_id: int) -> Optional[Dict[str, Any]]:
+        """Finds a single record by its ID."""
+        for record in self.records:
+            if record.get('id') == target_id:
+                return record
+        return None  # Return None if not found
+
+    def list_all_records(self) -> List[Dict[str, Any]]:
+        """Returns the complete list of all in-memory records."""
+        return self.records
