@@ -70,3 +70,6 @@ def main():
 
     """
     print(asccii_art)
+
+    # Inicializa o gerenciador de dados, carregando os registros do JSON
+    manager = CRUDManager()
