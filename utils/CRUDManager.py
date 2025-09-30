@@ -59,3 +59,21 @@ class CRUDManager:
     def list_all_records(self) -> List[Dict[str, Any]]:
         """Returns the complete list of all in-memory records."""
         return self.records
+
+    # =========================================================
+    # U - UPDATE (Modify)
+    # =========================================================
+    def update_record(self, target_id: int, new_data: Dict[str, Any]) -> bool:
+        """Updates an existing record, preserving its ID."""
+        for i, record in enumerate(self.records):
+            if record.get('id') == target_id:
+                # 1. Update the record, keeping the original ID
+                # Use .update() to merge new data with existing data
+                self.records[i].update(new_data)
+                self.records[i]['id'] = target_id  # Ensure ID is not overwritten
+
+                # 2. Persist the change
+                self._save_and_persist()
+                return True  # Successful update
+
+        return False  # Record not found
