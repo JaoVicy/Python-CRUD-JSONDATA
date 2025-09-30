@@ -51,3 +51,22 @@ def display_all_records(records: List[Dict[str, Any]]) -> None:
         row = " | ".join(str(record.get(h, '')).ljust(15) for h in headers)
         print(row)
     print("-" * (len(header_line) + len(headers)))
+
+
+# --- 2. FUNÇÃO PRINCIPAL (MAIN) ---
+
+def main():
+    """Função principal que inicia a aplicação e exibe o menu interativo."""
+
+    asccii_art: str = r""""
+    $$\   $$\           $$\ $$\           $$\ 
+    $$ |  $$ |          $$ |$$ |          $$ |
+    $$ |  $$ | $$$$$$\  $$ |$$ | $$$$$$\  $$ |
+    $$$$$$$$ |$$  __$$\ $$ |$$ |$$  __$$\ $$ |
+    $$  __$$ |$$$$$$$$ |$$ |$$ |$$ /  $$ |\__|
+    $$ |  $$ |$$   ____|$$ |$$ |$$ |  $$ |    
+    $$ |  $$ |\$$$$$$$\ $$ |$$ |\$$$$$$  |$$\ 
+    \__|  \__| \_______|\__|\__| \______/ \__|
+
+    """
+    print(asccii_art)
