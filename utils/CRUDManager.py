@@ -77,3 +77,21 @@ class CRUDManager:
                 return True  # Successful update
 
         return False  # Record not found
+
+    # =========================================================
+    # D - DELETE (Remove)
+    # =========================================================
+    def delete_record(self, target_id: int) -> bool:
+        """Deletes a record by its ID and persists the change."""
+
+        # Create a new list that excludes the record with the target ID
+        original_size = len(self.records)
+        self.records = [r for r in self.records if r.get('id') != target_id]
+
+        # Check if the size changed
+        if len(self.records) < original_size:
+            # If a record was removed, persist the new list
+            self._save_and_persist()
+            return True  # Successful deletion
+
+        return False  # Record not found
