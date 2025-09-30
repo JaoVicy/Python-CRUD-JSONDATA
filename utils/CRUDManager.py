@@ -27,3 +27,21 @@ class CRUDManager:
         # Get the maximum ID from all records and add 1
         max_id = max(record.get('id', 0) for record in self.records)
         return max_id + 1
+
+    # =========================================================
+    # C - CREATE (Add Record)
+    # =========================================================
+    def add_record(self, data: Dict[str, Any]) -> int:
+        """Adds a new record and persists the data."""
+
+        # 1. Generate and assign a unique ID
+        new_id = self._generate_new_id()
+        data['id'] = new_id
+
+        # 2. Add the new record to the in-memory list
+        self.records.append(data)
+
+        # 3. Save the updated list to the JSON file
+        self._save_and_persist()
+
+        return new_id
