@@ -18,3 +18,14 @@ def get_user_data() -> Dict[str, Any]:
         "nome": nome,
         "email": email
     }
+
+
+def display_record(record: Optional[Dict[str, Any]]) -> None:
+    """Exibe um único registro de forma formatada."""
+    if record:
+        print("\n--- Registro Encontrado ---")
+        for key, value in record.items():
+            print(f"  {key.capitalize()}: {value}")
+        print("--------------------------")
+    else:
+        print("\nRegistro não encontrado.")
