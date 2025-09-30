@@ -17,3 +17,16 @@ class FileManager:
             # print(f"Dados salvos com sucesso em '{filename}'") # Comentado para não poluir o console
         except IOError as e:
             print(f"ERRO: Falha ao escrever no arquivo '{filename}': {e}")
+
+    @staticmethod
+    def load_data(filename: str) -> List[Dict[str, Any]]:
+        """Carrega dados de um arquivo JSON. Retorna uma lista vazia em caso de erro."""
+        try:
+            with open(filename, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except FileNotFoundError:
+            # print(f"AVISO: Arquivo '{filename}' não encontrado. Iniciando com dados vazios.")
+            return []
+        except json.JSONDecodeError:
+            print(f"ERRO: Arquivo '{filename}' corrompido ou JSON inválido. Iniciando com dados vazios.")
+            return []
