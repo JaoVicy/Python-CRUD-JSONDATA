@@ -1,6 +1,6 @@
 import json
 from typing import Any, List, Dict, Optional
-from FileManager import FileManager
+from .FileManager import FileManager
 
 class CRUDManager:
     """
