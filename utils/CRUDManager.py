@@ -15,3 +15,7 @@ class CRUDManager:
         # Load existing data (or an empty list) when the application starts
         self.records: List[Dict[str, Any]] = FileManager.load_data(self.DATA_FILE)
         print(f"Manager initialized. Total records loaded: {len(self.records)}")
+
+    def _save_and_persist(self) -> None:
+        """Private method to save the list of records to the JSON file."""
+        FileManager.save_data(self.records, self.DATA_FILE)
