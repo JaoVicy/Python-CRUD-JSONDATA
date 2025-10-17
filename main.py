@@ -9,7 +9,7 @@ def get_user_data() -> Dict[str, Any]:
     """Solicita e coleta dados do usuário para um novo registro ou atualização."""
     print("\n--- Coleta de Dados ---")
 
-    # Exemplo: Solicita nome e email
+    # Solicita nome e email
     nome = input("Nome: ").strip()
     email = input("Email: ").strip()
 
@@ -57,6 +57,7 @@ def display_all_records(records: List[Dict[str, Any]]) -> None:
 def main():
     """Função principal que inicia a aplicação e exibe o menu interativo."""
 
+    # Exibe arte ASCII de boas-vindas
     asccii_art: str = r""""
     $$\   $$\           $$\ $$\           $$\ 
     $$ |  $$ |          $$ |$$ |          $$ |
