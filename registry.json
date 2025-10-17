@@ -8,5 +8,10 @@
         "nome": "Joao",
         "email": "joao@gmail.com",
         "id": 2
+    },
+    {
+        "nome": "Pedro",
+        "email": "pedro@gamil.com",
+        "id": 3
     }
 ]
